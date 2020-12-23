@@ -22,7 +22,7 @@ def decrypt_data(data, priv_key):
     return(decrypted.decode())
 
 
-decrypted = decrypt_data('encrypted.txt', "/Keys/private_key.pem")
+decrypted = decrypt_data('encrypted.txt', "Keys/private_key.pem")
 
 with open('decrypted.txt', 'w') as f:
     f.write(decrypted)
