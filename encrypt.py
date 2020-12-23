@@ -5,9 +5,9 @@ from cryptography.hazmat.primitives.asymmetric import rsa
 from cryptography.hazmat.backends import default_backend 
 
 #Read Public Key
-def encrypt_data(data):
+def encrypt_data(data, pub_key):
     data = data.encode()
-    with open("public_key.pem", "rb") as key_file:
+    with open(pub_key, "rb") as key_file:
         public_key = serialization.load_pem_public_key(
             key_file.read(),
             backend=default_backend())
@@ -20,8 +20,9 @@ def encrypt_data(data):
     with open('encrypted.txt', 'wb') as f:
         f.write(encrypted)
 
-message = 'hello world'
+with open("message_in.txt","r") as f:
+    data = f.read()
 
-encrypt_data(message)
+encrypt_data(data,"Keys/public_key.pem")
 
 
