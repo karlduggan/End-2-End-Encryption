@@ -5,9 +5,6 @@ from cryptography.hazmat.primitives.asymmetric import rsa
 from cryptography.hazmat.backends import default_backend 
 
 #Read Public Key
-
-
-
 def encrypt_data(data):
     data = data.encode()
     with open("public_key.pem", "rb") as key_file:
